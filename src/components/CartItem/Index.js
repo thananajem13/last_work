@@ -1,6 +1,6 @@
 import React from 'react'
 import './Index.css'
-function Index() {
+const Index=()=> {
     return (
         <div>
             <div class="container bootstrap snippets bootdey">
