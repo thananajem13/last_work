@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { Redirect, Route, Switch } from "react-router";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 import Popper from 'popper.js';
@@ -16,16 +17,16 @@ class App extends Component {
   render() {
     return (
       <Router>
-              <div class="container">
-        <div class="row">
+              <div className="container">
+        <div className="row">
           {this.props.products.map((product) => (
-            <div class="col-xs-12 col-md-4 col-lg-3">
-              <div class="card" style={{ width: 18 + 'rem' }}>
-                <img src={`/images/${product.image}`} class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">{product.productName}</h5>
-                  <p class="card-text">{product.description}</p>
-                  <Link to={`product/${product.id}`} class="btn btn-primary">Details</Link>
+            <div className="col-xs-12 col-md-4 col-lg-3">
+              <div className="card" style={{ width: 18 + 'rem' }}>
+                <img src={`/images/${product.image}`} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">{product.productName}</h5>
+                  <p className="card-text">{product.description}</p>
+                  <Link to={`/product/${product.id}`} className="btn btn-primary">Details</Link>
                 </div>
               </div>
 
@@ -33,7 +34,10 @@ class App extends Component {
           ))}
         </div>
       </div>
-      <Route path="product/:id" component={index}/>
+      <Route path="/product/:id" exact Component={index}>
+        <Redirect to="/product/:id" />
+      </Route>
+      <Route path="/" exact Component={App}/>
       </Router>
 
     )
