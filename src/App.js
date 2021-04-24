@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react'; 
 import { stockData } from './product'
 
 class App extends Component {
