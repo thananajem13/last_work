@@ -4,7 +4,7 @@ import './index.css'
 import './../../../node_modules/font-awesome/css/font-awesome.min.css';
 import { Route, Router } from 'react-router';
 import App from '../../App';
-export class index extends Component {
+export class Index extends Component {
     // id = null;
     // product = null
     // componentDidMount() {
@@ -12,10 +12,14 @@ export class index extends Component {
     //    product = this.props.products.filter(product => product.id === id)
     // console.log(id," ,,,,, ",product)
     // }
- 
+ product_details_by_id = this.props.products.filter( product => 
+                 product.id === this.props.match.params.id
+              )
     render() {
         return (
-            console.log(this.props.products), 
+            console.log(this.props.products),
+            
+            
                   <div className="container">
                 <div className="row">
                     <div className="col-md-8 offset-md-2">
@@ -217,4 +221,4 @@ function mapStateToProps(state) {
         products: state
     }
 }
-export default connect(mapStateToProps)(index);
+export default connect(mapStateToProps)(Index);

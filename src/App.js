@@ -6,20 +6,19 @@ import $ from "jquery";
 import Popper from "popper.js";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Index from "./components/ProductDetails/index";
-import Home from "./components/Home";
-import Index from './components/CartItem/Index'
-import Index from "./components/CartItem/Index"; 
+import {default as PD}  from "./components/ProductDetails/index";
+import Home from "./components/Home"; 
+import {default as CI}  from "./components/CartItem/Index"; 
 export default class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
           <Route path="/product/:id">
-            <Index />
+            <PD />
           </Route>
           <Route path="/cart">
-            <Index />
+            <CI />
           </Route>
           <Route path="/" exact>
             <Home />
