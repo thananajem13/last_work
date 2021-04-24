@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './index.css'
 import './../../../node_modules/font-awesome/css/font-awesome.min.css';
+import { Route, Router } from 'react-router';
+import App from '../../App';
 export class index extends Component {
     // id = null;
     // product = null
@@ -13,8 +15,8 @@ export class index extends Component {
  
     render() {
         return (
-            console.log(this.props.products),
-            <div className="container">
+            console.log(this.props.products), 
+                  <div className="container">
                 <div className="row">
                     <div className="col-md-8 offset-md-2">
                         <div className="row" id="gradient">
@@ -203,8 +205,8 @@ export class index extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div>  
+          
         )
     }
 }
