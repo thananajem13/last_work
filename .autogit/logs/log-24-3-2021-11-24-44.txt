@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Sat Apr 24 2021 11:24:44 GMT+0300 (Israel Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* package.json
+* src/App.js
+* src/components/ProductDetails/index.js
+
+
+Created files:
+* .autogit/logs/log-24-3-2021-10-54-23.txt
+
+
+Deleted files:
+
+
+Renamed files:

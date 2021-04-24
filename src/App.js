@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Redirect, Route, Switch } from "react-router";
+import { Redirect} from "react-router";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 import Popper from 'popper.js';
@@ -31,12 +31,11 @@ class App extends Component {
               </div>
 
             </div>
+            
           ))}
         </div>
       </div>
-      <Route path="/product/:id" exact Component={index}>
-        <Redirect to="/product/:id" />
-      </Route>
+      <Route path="/product/:id" exact Component={index}  />  
       <Route path="/" exact Component={App}/>
       </Router>
 
