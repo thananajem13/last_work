@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Sat Apr 24 2021 10:24:04 GMT+0300 (Israel Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* package-lock.json
+* package.json
+* src/App.js
+
+
+Created files:
+* .autogit/logs/log-24-3-2021-9-53-43.txt
+
+
+Deleted files:
+
+
+Renamed files:
