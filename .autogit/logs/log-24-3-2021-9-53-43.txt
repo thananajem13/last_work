@@ -1,0 +1,23 @@
+-------------------- Auto-Git Log --------------------
+		Sat Apr 24 2021 09:53:43 GMT+0300 (Israel Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* src/App.js
+* src/index.js
+* src/reducers/index.js
+
+
+Created files:
+* .autogit/logs/log-24-3-2021-9-23-24.txt
+* public/images/asus-zenbook-flip-s.jpg
+* public/images/dell-xps-13.jpg
+* public/images/huawei-matebook-pro.jpg
+* public/images/macbook-pro-15.jpg
+* public/images/samsung-notebook-9.jpg
+
+
+Deleted files:
+
+
+Renamed files:
