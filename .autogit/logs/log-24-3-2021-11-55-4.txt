@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Sat Apr 24 2021 11:55:04 GMT+0300 (Israel Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* src/components/ProductDetails/index.js
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:
