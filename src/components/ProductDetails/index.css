@@ -39,3 +39,28 @@
 .pb-product-details-fa > span {
     padding-top: 20px;
 }
+input[type=number] {
+    height: 30px;
+    cursor: pointer;
+}
+
+input[type=number]:hover::-webkit-inner-spin-button {  
+    width: 14px;
+    height: 30px;
+    /* cursor: pointer; */
+}
+input[type=number]:hover::-moz-inner-spin-button {  
+    width: 14px;
+    height: 30px;
+    cursor: pointer;
+}
+input[type=number]:hover::-ms-inner-spin-button {  
+    width: 14px;
+    height: 30px;
+    cursor: pointer;
+}
+input[type=number]:hover::-o-inner-spin-button {  
+    width: 14px;
+    height: 30px;
+    cursor: pointer;
+}

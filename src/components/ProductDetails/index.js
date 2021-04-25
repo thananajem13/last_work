@@ -40,9 +40,11 @@ const Index = ({ products }) => {
                                     </div>
                                     <div className="col-xs-6 col-md-6">
                                         <div className="row">
-                                            <div className="col-xs-10 col-md-10 text-xs-center" id="hits">
+                                            <div className="col-xs-10 col-md-10 text-xs-center form-outline" id="hits">
                                                 <span className="fa fa-sort-amount-up">&nbsp;</span>
-                                                <input type="number" min="1" className="d-block" />
+                                                <label className="form-label" htmlFor="qty">Quantity</label>
+                                                <input type="number" id="qty" min="1" className="form-control" />
+
                                             </div>
                                         </div>
                                         <div className="row">
