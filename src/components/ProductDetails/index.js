@@ -2,22 +2,31 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './index.css'
 import './../../../node_modules/font-awesome/css/font-awesome.min.css';
-import { Route, Router } from 'react-router';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams
+} from "react-router-dom";
 
-const product_details_by_id = null
-const Index = ({ match }) => {
+const Index = ({products}) => {
     // id = null;
     // product = null
     // componentDidMount() {
     //    id = this.props.match.params.id; 
     // }  
+    let { id } = useParams();
+    console.log(id); 
+    console.log(products); 
+    const product_details_by_id = products.find(product =>
+        product.id === id);
+    console.log(product_details_by_id);
     return (
 
         <div className="container">
-            { product_details_by_id = this.props.products.find(product =>
-                product.id === match.params.id)
+            {
             }
-            {console.log(match.params.id)}
             <div className="row">
                 <div className="col-md-8 offset-md-2">
                     <div className="row" id="gradient">
@@ -28,10 +37,10 @@ const Index = ({ match }) => {
                             <div className="row">
                                 <div className="col-xs-6 col-md-6">
                                     <ul className="pb-product-details-ul">
-                                        <li><span className="fa fa-calendar">&nbsp;Released 2016, March</span></li>
-                                        <li><span className="fa fa-phone">&nbsp;157g, 7.7mm thickness</span></li>
+                                        <li><span className="fa fa-microchip">&nbsp;{`${product_details_by_id.cpu} CPU`}</span></li>
+                                        <li><span className="fa fa-memory">&nbsp;{`${product_details_by_id.cpu} CPU`}</span></li>
                                         <li><span className="fa fa-bluetooth-b">&nbsp;Android OS, v6.0, up to 7.0</span></li>
-                                        <li><span className="fa fa-microchip">&nbsp;32/64/128GB Storage</span></li>
+                                        <li><span className="fa fa-microchip">&nbsp;{`${product_details_by_id.storage} Storage`} </span></li>
                                     </ul>
                                 </div>
                                 <div className="col-xs-3 col-md-3 text-xs-center" id="hits">
@@ -81,7 +90,7 @@ const Index = ({ match }) => {
                                     <tbody>
                                         <tr>
                                             <td className="success">Physical size: </td>
-                                            <td>5.5 inches</td>
+                                            <td>{product_details_by_id.screen}</td>
                                         </tr>
                                         <tr>
                                             <td className="success">Resolution: </td>
@@ -145,7 +154,7 @@ const Index = ({ match }) => {
                                         </tr>
                                         <tr>
                                             <td className="success">Processor: </td>
-                                            <td>Quad-core, 2200 MHz, Kryo, 64-bit</td>
+                                            <td>{product_details_by_id.cpu}</td>
                                         </tr>
                                         <tr>
                                             <td className="success">GPU: </td>
@@ -157,7 +166,7 @@ const Index = ({ match }) => {
                                         </tr>
                                         <tr>
                                             <td className="success">Built-in storage: </td>
-                                            <td>32GB</td>
+                                            <td>{product_details_by_id.ram}</td>
                                         </tr>
                                         <tr>
                                             <td className="success">Storage Expansion: </td>
