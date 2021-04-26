@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import Navbar from "./Navbar/Navbar";
 
 class Home extends Component {
   render() {
     return (
       <div>
+        <Navbar />
         <div className="container">
           <div className="row">
             {this.props.products.map((product) => (
-              <div className="col-xs-12 col-md-4 col-lg-3">
+              <div className="col-xs-12 col-md-4 col-lg-3" key={product.id}>
                 <div className="card" style={{ width: 18 + "rem" }}>
                   <img
                     src={`/images/${product.image}`}

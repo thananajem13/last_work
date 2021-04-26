@@ -6,6 +6,10 @@ const getProductListReducer = function (state = initState, action) {
         case GET_PRODUCTS_LIST:
             console.log("from reducer: ", state)
             return state;
+        case ADD_TO_CART:
+            console.log("from reducer: ", state)
+            state = [...state,action.]
+            return state;
         default:
             return state;
     }

@@ -10,6 +10,7 @@ import {
     useParams
 } from "react-router-dom";
 import Navbar from '../Navbar/Navbar';
+import { ADD_TO_CART } from '../../types';
 
 const Index = ({ products }) => {
     let { id } = useParams();
@@ -49,7 +50,7 @@ const Index = ({ products }) => {
                                         </div>
                                         <div className="row">
                                             <div className="col-xs-10 col-md-10 text-xs-center " id="fan">
-                                                <button className="btn btn-danger form-control d-block"><span className="fa fa-cart-plus">&nbsp;</span>Add to cart</button>
+                                                <button className="btn btn-danger form-control d-block" onClick={addToCart(product_details_by_id.id)}><span className="fa fa-cart-plus">&nbsp;</span>Add to cart</button>
                                             </div>
                                         </div>
                                     </div>
@@ -73,4 +74,14 @@ function mapStateToProps(state) {
         products: state
     }
 }
-export default connect(mapStateToProps)(Index);
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    AddToCart: (params) => dispatch({ type: ADD_TO_CART }),
+    // RemoveFromCart: () => dispatch({type: REMOVE_FROM_CART })
+  }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Index);
+
+

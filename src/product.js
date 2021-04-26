@@ -55,7 +55,7 @@ export const stockData = [
         "description": "While it may not have the best keyboard in the world, the Samsung Notebook 9 is still one of the best laptops you can buy in 2018. Packed with more horsepower than some MacBook Pros,but at a much lower price, Samsung has crafted a laptop that has just as much substance as it does style. Plus, on top of its killer specs, it’s lightweight and thin, making this one of the most portable 15-inch laptops you can buy today."
     },
     {
-        "id": "4",
+        "id": "5",
         "productName": "Apple Macbook Pro 2018",
         "image": "macbook-pro-15.jpg",
         "cpu": "6-core Intel i7, 8th generation",
@@ -66,7 +66,7 @@ export const stockData = [
         "description": "If you're after the latest and greatest laptop from Apple, we suggest you look into the 2018 model of the 15-inch MacBook Pro with Touch Bar. The headline Touch Bar – a thin OLED display at the top of the keyboard which can be used for any number of things, whether that be auto-suggesting words as you type or offering Touch ID so you can log in with just your fingerprint – is of course included. It's certainly retained Apple's sense of style, but it comes at a cost. This is a pricey machine, so you may want to consider one of the Windows alternatives. But, if you're a steadfast Apple diehard, this is definitely the best laptop for you!"
     },
     {
-        "id": "5",
+        "id": "6",
         "productName": "Dell XPS 13",
         "image": "dell-xps-13.jpg",
         "cpu": "Intel Core i7, 8th generation",
@@ -77,7 +77,7 @@ export const stockData = [
         "description": "The Dell XPS 13 is an absolutely brilliant laptop. The 2018 version rocks an 8th-generation Intel Core i5 or i7 processor and a bezel-less ‘Infinity Edge’ display, this Dell XPS 13 continues to be the most popular Windows laptop in the world. What’s more, there’s a wide range of customization options, so you can really make the Dell XPS 13 the best laptop for your needs. "
     },
     {
-        "id": "6",
+        "id": "42",
         "productName": "Asus ZenBook Flip S",
         "image": "asus-zenbook-flip-s.jpg",
         "cpu": "Intel Core i7, 8th generation",
@@ -154,7 +154,7 @@ export const stockData = [
         "description": "If you're after the latest and greatest laptop from Apple, we suggest you look into the 2018 model of the 15-inch MacBook Pro with Touch Bar. The headline Touch Bar – a thin OLED display at the top of the keyboard which can be used for any number of things, whether that be auto-suggesting words as you type or offering Touch ID so you can log in with just your fingerprint – is of course included. It's certainly retained Apple's sense of style, but it comes at a cost. This is a pricey machine, so you may want to consider one of the Windows alternatives. But, if you're a steadfast Apple diehard, this is definitely the best laptop for you!"
     },
     {
-        "id": "12",
+        "id": "43",
         "productName": "Dell XPS 13",
         "image": "dell-xps-13.jpg",
         "cpu": "Intel Core i7, 8th generation",

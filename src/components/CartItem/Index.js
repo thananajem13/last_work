@@ -1,30 +1,32 @@
 import React from 'react'
+import Navbar from '../Navbar/Navbar'
 import './Index.css'
 const Index=()=> {
     return (
         <div>
-            <div class="container bootstrap snippets bootdey">
-                <div class="col-md-9 col-sm-8 content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ol class="breadcrumb">
+            <Navbar />
+            <div className="container bootstrap snippets bootdey">
+                <div className="col-md-9 col-sm-8 content">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <ol className="breadcrumb">
                                 <li><a href="#">Home</a></li>
-                                <li class="active">Cart</li>
+                                <li className="active">Cart</li>
                             </ol>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="panel panel-info panel-shadow">
-                                <div class="panel-heading">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="panel panel-info panel-shadow">
+                                <div className="panel-heading">
                                     <h3>
-                                        <img class="img-circle img-thumbnail" src="https://bootdey.com/img/Content/user_3.jpg" />
+                                        <img className="img-circle img-thumbnail" src="https://bootdey.com/img/Content/user_3.jpg" />
                             Matew darfkmoun
                         </h3>
                                 </div>
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table">
+                                <div className="panel-body">
+                                    <div className="table-responsive">
+                                        <table className="table">
                                             <thead>
                                                 <tr>
                                                     <th>Product</th>
@@ -36,13 +38,13 @@ const Index=()=> {
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" class="img-cart" /></td>
+                                                    <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" className="img-cart" /></td>
                                                     <td><strong>Product 1</strong><p>Size : 26</p></td>
                                                     <td>
-                                                        <form class="form-inline">
-                                                            <input class="form-control" type="text" value="1" />
-                                                            <button rel="tooltip" class="btn btn-default"><i class="fa fa-pencil"></i></button>
-                                                            <a href="#" class="btn btn-primary"><i class="fa fa-trash-o"></i></a>
+                                                        <form className="form-inline">
+                                                            <input className="form-control" type="text" defaultValue="1" />
+                                                            <button rel="tooltip" className="btn btn-default"><i className="fa fa-pencil"></i></button>
+                                                            <a href="#" className="btn btn-primary"><i className="fa fa-trash-o"></i></a>
                                                         </form>
                                                     </td>
                                                     <td>$54.00</td>
@@ -50,18 +52,18 @@ const Index=()=> {
                                                 </tr>
 
                                                 <tr>
-                                                    <td colspan="6">&nbsp;</td>
+                                                    <td colSpan="6">&nbsp;</td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="4" class="text-right">Total Product</td>
+                                                    <td colSpan="4" className="text-right">Total Product</td>
                                                     <td>$86.00</td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="4" class="text-right">Total Shipping</td>
+                                                    <td colSpan="4" className="text-right">Total Shipping</td>
                                                     <td>$2.00</td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="4" class="text-right"><strong>Total</strong></td>
+                                                    <td colSpan="4" className="text-right"><strong>Total</strong></td>
                                                     <td>$88.00</td>
                                                 </tr>
                                             </tbody>
@@ -69,8 +71,8 @@ const Index=()=> {
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Continue Shopping</a>
-                            <a href="#" class="btn btn-primary pull-right">Next<span class="glyphicon glyphicon-chevron-right"></span></a>
+                            <a href="#" className="btn btn-success"><span className="glyphicon glyphicon-arrow-left"></span>&nbsp;Continue Shopping</a>
+                            <a href="#" className="btn btn-primary pull-right">Next<span className="glyphicon glyphicon-chevron-right"></span></a>
                         </div>
                     </div>
                 </div>
