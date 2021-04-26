@@ -35,7 +35,7 @@ const cart = function (state = [], action) {
         case CHEK_IF_ITEM_EXIST_IN_CART:
             console.log("from reducer: ", state)
             check_if_item_exist_in_cart = cartItems.product.id.indexOf(action.product_id) !== -1
-                state = total_price
+                state = check_if_item_exist_in_cart
             return state;
         default:
             return state;

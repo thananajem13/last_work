@@ -10,7 +10,7 @@ import {
     useParams
 } from "react-router-dom";
 import Navbar from '../Navbar/Navbar';
-import { ADD_TO_CART } from '../../types';
+import { ADD_TO_CART, CHEK_IF_ITEM_EXIST_IN_CART, REMOVE_FROM_CART } from '../../types';
 
 const Index = ({ products }) => {
     let { id } = useParams();
@@ -50,7 +50,12 @@ const Index = ({ products }) => {
                                         </div>
                                         <div className="row">
                                             <div className="col-xs-10 col-md-10 text-xs-center " id="fan">
-                                                <button className="btn btn-danger form-control d-block" /*onClick={addToCart(product_details_by_id.id)}*/><span className="fa fa-cart-plus">&nbsp;</span>Add to cart</button>
+                                                {(this.props.CheckIfItemExistInCart(product_details_by_id.id)) ?
+                                                    <button className="btn btn-danger form-control d-block" onClick={this.props.addToCart(product_details_by_id.id)}><span className="fa fa-cart-plus">&nbsp;</span>Add to cart</button>
+                                                    :
+                                                    <button className="btn btn-danger form-control d-block" onClick={this.props.removeFromCart(product_details_by_id.id)}><span className="fa fa-cart-plus">&nbsp;</span>Remove from cart</button>
+                                                }
+
                                             </div>
                                         </div>
                                     </div>
@@ -77,10 +82,11 @@ function mapStateToProps(state) {
 
 
 const mapDispatchToProps = dispatch => {
-  return {
-    AddToCart: (params) => dispatch({ type: ADD_TO_CART }),
-    // RemoveFromCart: () => dispatch({type: REMOVE_FROM_CART })
-  }
+    return {
+        AddToCart: (params) => dispatch({ type: ADD_TO_CART }),
+        RemoveFromCart: (params) => dispatch({ type: REMOVE_FROM_CART }),
+        CheckIfItemExistInCart: (params) => dispatch({ type: CHEK_IF_ITEM_EXIST_IN_CART }),
+    }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Index);
 

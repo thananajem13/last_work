@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import './Index.css'
 import { connect } from "react-redux";
-import { GET_TOTAL_PRICE } from '../../types';
+import { GET_TOTAL_PRICE, REMOVE_FROM_CART } from '../../types';
 
 // import cart from './reducers/cart'
 const Index=()=> {
@@ -49,7 +49,7 @@ const Index=()=> {
                                                         <form className="form-inline">
                                                             <input className="form-control" type="number" defaultValue="1" value={cartItem.qty} />
                                                             <button rel="tooltip" className="btn btn-default"><i className="fa fa-pencil"></i></button>
-                                                            <a href="#" className="btn btn-primary"><i className="fa fa-trash-o"></i></a>
+                                                            <button className="btn btn-primary" onClick={this.props.RemoveFromCart(cartItem.product.id)}><i className="fa fa-trash-o"></i></button>
                                                         </form>
                                                     </td>
                                                     <td>{`${cartItem.product.price}$`}</td>
@@ -96,7 +96,7 @@ function mapStateToProps(state) {
   const mapDispatchToProps = dispatch => {
     return {
       get_total_price: () => dispatch({ type: GET_TOTAL_PRICE }),
-      // RemoveFromCart: () => dispatch({type: REMOVE_FROM_CART })
+      RemoveFromCart: (params) => dispatch({type: REMOVE_FROM_CART })
     }
   };
 export default connect(mapStateToProps,mapDispatchToProps)(Index); 
