@@ -8,7 +8,9 @@ const getProductListReducer = function (state = initState, action) {
             return state;
         case ADD_TO_CART:
             console.log("from reducer: ", state)
-            state = [...state,action.]
+            product = stockData.find(product =>
+                product.id === action.product_id);
+            state = [...state,product]
             return state;
         default:
             return state;

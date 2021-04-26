@@ -8,9 +8,10 @@ export const getProductsList = () => {
     console.log("GET PRODUCTS LIST", action)
     return action
 }
-export const addToCart = (product) => {
+export const addToCart = (product_id) => {
     const action = {
-        type: ADD_TO_CART
+        type: ADD_TO_CART,
+        product_id:product_id
     }
     console.log("ADD TO CART", action)
     return action
