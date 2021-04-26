@@ -6,12 +6,7 @@ const getProductListReducer = function (state = initState, action) {
         case GET_PRODUCTS_LIST:
             console.log("from reducer: ", state)
             return state;
-        case ADD_TO_CART:
-            console.log("from reducer: ", state)
-            product = stockData.find(product =>
-                product.id === action.product_id);
-            state = [...state,product]
-            return state;
+         
         default:
             return state;
     }

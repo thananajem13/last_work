@@ -50,7 +50,7 @@ const Index = ({ products }) => {
                                         </div>
                                         <div className="row">
                                             <div className="col-xs-10 col-md-10 text-xs-center " id="fan">
-                                                <button className="btn btn-danger form-control d-block" onClick={addToCart(product_details_by_id.id)}><span className="fa fa-cart-plus">&nbsp;</span>Add to cart</button>
+                                                <button className="btn btn-danger form-control d-block" /*onClick={addToCart(product_details_by_id.id)}*/><span className="fa fa-cart-plus">&nbsp;</span>Add to cart</button>
                                             </div>
                                         </div>
                                     </div>

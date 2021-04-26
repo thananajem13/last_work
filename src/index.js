@@ -6,8 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import {createStore, combineReducers} from 'redux'
 import { Provider } from 'react-redux';
 import getProductListReducer from './reducers/index'
-// const reducer = combineReducers({})
-const store = createStore(getProductListReducer)
+import cart from './reducers/cart'
+const reducer = combineReducers({
+  gp: getProductListReducer,
+  c: cart
+})
+const store = createStore(reducer)
+console.log("store: ",getProductListReducer)
 ReactDOM.render(
   <Provider store={store}>
     <App />

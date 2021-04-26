@@ -21,7 +21,8 @@ export default class App extends Component {
             <CI />
           </Route>
           <Route path="/" exact>
-            <Home />
+            {/* <Home /> */}
+            <h1>home</h1>
           </Route>
         </Switch>
       </Router>
