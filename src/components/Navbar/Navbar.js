@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { GET_TOTAL_PRICE } from '../../types';
 const Navbar = () => {
     return (
 
@@ -13,7 +15,7 @@ const Navbar = () => {
                     <ul className="navbar-nav mr-2">
                         <li className="nav-item"><Link className="nav-link" to="/">Shop</Link></li>
                         <li className="nav-item"><Link className="nav-link" to="/cart">My cart</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to="/cart"><i className="bg-danger">shopping_cart <span className="badge badge-dark">4</span></i></Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="/cart"><i className="bg-danger">shopping_cart <span className="badge badge-dark">{this.props.get_total_price()}</span></i></Link></li>
                     </ul>
                 </div>
 
@@ -21,5 +23,11 @@ const Navbar = () => {
         </nav>
     )
 }
-
-export default Navbar;
+ 
+const mapDispatchToProps = dispatch => {
+    return {
+      get_total_price: () => dispatch({ type: GET_TOTAL_PRICE }),
+      // RemoveFromCart: () => dispatch({type: REMOVE_FROM_CART })
+    }
+  };
+export default connect(null,mapDispatchToProps)(Navbar); 

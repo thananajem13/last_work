@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import './Index.css'
 import { connect } from "react-redux";
+import { GET_TOTAL_PRICE } from '../../types';
 
 // import cart from './reducers/cart'
 const Index=()=> {
@@ -43,15 +44,15 @@ const Index=()=> {
                                             {this.props.products.map((cartItem) => (
                                                  <tr>
                                                     <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" className="img-cart" /></td>
-                                                    <td><strong>{product.image}</strong><p>Size : 26</p></td>
+                                                    <td><strong>{cartItem.product.image}</strong><p>Size : 26</p></td>
                                                     <td>
                                                         <form className="form-inline">
-                                                            <input className="form-control" type="text" defaultValue="1" value={product.q} />
+                                                            <input className="form-control" type="number" defaultValue="1" value={cartItem.qty} />
                                                             <button rel="tooltip" className="btn btn-default"><i className="fa fa-pencil"></i></button>
                                                             <a href="#" className="btn btn-primary"><i className="fa fa-trash-o"></i></a>
                                                         </form>
                                                     </td>
-                                                    <td>{product.price}</td>
+                                                    <td>{`${cartItem.product.price}$`}</td>
                                                     <td>$54.00</td>
                                                 </tr>
 
@@ -62,7 +63,7 @@ const Index=()=> {
                                                 </tr>
                                                 <tr>
                                                     <td colSpan="4" className="text-right">Total Product</td>
-                                                    <td>$86.00</td>
+                                                    <td>{this.props.get_total_price()}</td>
                                                 </tr>
                                                 <tr>
                                                     <td colSpan="4" className="text-right">Total Shipping</td>
@@ -92,4 +93,10 @@ function mapStateToProps(state) {
       products: state.c,
     };
   }
-export default connect(mapStateToProps)(Index); 
+  const mapDispatchToProps = dispatch => {
+    return {
+      get_total_price: () => dispatch({ type: GET_TOTAL_PRICE }),
+      // RemoveFromCart: () => dispatch({type: REMOVE_FROM_CART })
+    }
+  };
+export default connect(mapStateToProps,mapDispatchToProps)(Index); 
