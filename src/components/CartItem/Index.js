@@ -1,6 +1,9 @@
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import './Index.css'
+import { connect } from "react-redux";
+
+// import cart from './reducers/cart'
 const Index=()=> {
     return (
         <div>
@@ -37,21 +40,24 @@ const Index=()=> {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                            {this.props.products.map((cartItem) => (
+                                                 <tr>
                                                     <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" className="img-cart" /></td>
-                                                    <td><strong>Product 1</strong><p>Size : 26</p></td>
+                                                    <td><strong>{product.image}</strong><p>Size : 26</p></td>
                                                     <td>
                                                         <form className="form-inline">
-                                                            <input className="form-control" type="text" defaultValue="1" />
+                                                            <input className="form-control" type="text" defaultValue="1" value={product.q} />
                                                             <button rel="tooltip" className="btn btn-default"><i className="fa fa-pencil"></i></button>
                                                             <a href="#" className="btn btn-primary"><i className="fa fa-trash-o"></i></a>
                                                         </form>
                                                     </td>
-                                                    <td>$54.00</td>
+                                                    <td>{product.price}</td>
                                                     <td>$54.00</td>
                                                 </tr>
 
-                                                <tr>
+                                         
+                                            ))},
+                                                      <tr>
                                                     <td colSpan="6">&nbsp;</td>
                                                 </tr>
                                                 <tr>
@@ -80,5 +86,10 @@ const Index=()=> {
         </div>
     )
 }
-
-export default Index
+function mapStateToProps(state) {
+    console.log(state.c);
+    return {
+      products: state.c,
+    };
+  }
+export default connect(mapStateToProps)(Index); 

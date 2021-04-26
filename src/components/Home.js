@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Navbar from "./Navbar/Navbar";
-import getProductListReducer from './reducers/index'
-import cart from './reducers/cart'
+import Navbar from "./Navbar/Navbar"; 
+
 class Home extends Component {
   render() {
     return (
@@ -42,7 +41,7 @@ class Home extends Component {
 function mapStateToProps(state) {
   console.log(state.gp);
   return {
-    products: state,
+    products: state.gp,
   };
 }
 export default connect(mapStateToProps)(Home);

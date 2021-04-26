@@ -209,7 +209,7 @@ export const stockData = [
         "description": "The Dell XPS 13 is an absolutely brilliant laptop. The 2018 version rocks an 8th-generation Intel Core i5 or i7 processor and a bezel-less ‘Infinity Edge’ display, this Dell XPS 13 continues to be the most popular Windows laptop in the world. What’s more, there’s a wide range of customization options, so you can really make the Dell XPS 13 the best laptop for your needs. "
     },
     {
-        "id": "16",
+        "id": "44",
         "productName": "Asus ZenBook Flip S",
         "image": "asus-zenbook-flip-s.jpg",
         "cpu": "Intel Core i7, 8th generation",
