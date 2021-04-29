@@ -15,6 +15,7 @@ class Index extends Component {
     }
     // const [qty, setQty] = useState(0);
     render() {
+        console.log(this.props.products);
         const product_details_by_id = this.props.products.find(product =>
             product.id === this.props.productId);
         return (
