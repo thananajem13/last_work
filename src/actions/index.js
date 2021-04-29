@@ -1,5 +1,5 @@
 import React from 'react'
-import { ADD_TO_CART, GET_PRODUCTS_LIST, REMOVE_FROM_CART } from '../types';
+import { ADD_TO_CART, CHEK_IF_ITEM_EXIST_IN_CART, GET_PRODUCTS_LIST, GET_TOTAL_PRICE, REMOVE_FROM_CART } from '../types';
 
 export const getProductsList = () => {
     const action = {

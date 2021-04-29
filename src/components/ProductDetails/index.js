@@ -76,7 +76,7 @@ const Index = ({ products }) => {
 function mapStateToProps(state) {
     console.log(state)
     return {
-        products: state
+        products: state.products
     }
 }
 

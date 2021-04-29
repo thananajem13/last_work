@@ -39,9 +39,9 @@ class Home extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.gp);
+  console.log(state);
   return {
-    products: state.gp,
+    products: state.products,
   };
 }
 export default connect(mapStateToProps)(Home);
