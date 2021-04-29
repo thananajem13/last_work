@@ -4,6 +4,8 @@ import './index.css'
 import './../../../node_modules/font-awesome/css/font-awesome.min.css';
 import { useParams } from "react-router-dom";
 import Navbar from '../Navbar/Navbar';
+import { compose } from 'redux'
+import { withRouter } from "react-router";
 import { addToCart, check_if_item_exist_in_cart, removeFromCart } from '../../actions';
 
 class Index extends Component {
@@ -75,13 +77,12 @@ class Index extends Component {
 
 }
 const mapStateToProps = (state, ownProps) => ({
-        productId: ownProps.match.params.id,
-        products: state.products,
-        cart: state.cart,
-        itemIsExistInCart: state.itemIsExistInCart,
-        total_price: state.total_price
-}); 
-
+    productId: ownProps.match.params.id,
+    products: state.products,
+    cart: state.cart,
+    itemIsExistInCart: state.itemIsExistInCart,
+    total_price: state.total_price
+});
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -90,7 +91,9 @@ const mapDispatchToProps = dispatch => {
         CheckIfItemExistInCart: (product_id) => dispatch(check_if_item_exist_in_cart(product_id)),
     }
 };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default compose(
+    withRouter,
+    connect(mapStateToProps, mapDispatchToProps),
+)(Index);
 
 

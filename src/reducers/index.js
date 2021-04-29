@@ -8,6 +8,7 @@ const initState = {
 }
 
 const getProductListReducer = function (state = initState, action) {
+   console.log(state.products[0].id) ;
     switch (action.type) {
         case GET_PRODUCTS_LIST:
             console.log("from reducer: ", state)
@@ -44,9 +45,13 @@ const getProductListReducer = function (state = initState, action) {
             return state;
         case CHEK_IF_ITEM_EXIST_IN_CART:
             console.log("from reducer: ", state)
-            const check_if_item_exist_in_cart = state.cart.product.id.indexOf(action.product_id) !== -1
+        const cart_product = state.cart
+        const check_if_item_exist_in_cart = false
+        cart_product.map((product)=>(
+        check_if_item_exist_in_cart = product.id.indexOf(action.product_id) !== -1
+        ))
             this.setState({
-                itemIsExistInCart: check_if_item_exist_in_cart
+                state.itemIsExistInCart: check_if_item_exist_in_cart
             })
             return state;
         default:

@@ -6,12 +6,12 @@ import { default as PD } from "./components/ProductDetails/index"
 import Home from "./components/Home"
 import { default as CI } from "./components/CartItem/Index"
 export default class App extends Component {
-  render() {
+  render() {  
     return (
       <Router>
         <Switch>
           <Route path="/product/:id">
-          const pdContainer = (props) => {<PD ...props />}
+          <PD />
           </Route>
           <Route path="/cart">
             <CI />
