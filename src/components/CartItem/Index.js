@@ -1,9 +1,9 @@
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import './Index.css'
-import { connect } from "react-redux";
-import { GET_TOTAL_PRICE, REMOVE_FROM_CART } from '../../types';
-const Index = ({products,get_total_price,RemoveFromCart}) => {
+import { connect } from "react-redux"; 
+import { get_total_price, removeFromCart } from '../../actions';
+const Index = ({products}) => {
     console.log(products)
     return (
         <div>
@@ -93,8 +93,8 @@ function mapStateToProps(state) {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        get_total_price: () => dispatch({ type: GET_TOTAL_PRICE }),
-        RemoveFromCart: (params) => dispatch({ type: REMOVE_FROM_CART })
+        get_total_price: () => dispatch(get_total_price()),
+        RemoveFromCart: (prod_id) => dispatch(removeFromCart(prod_id))
     }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Index);

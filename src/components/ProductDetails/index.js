@@ -2,15 +2,9 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import './index.css'
 import './../../../node_modules/font-awesome/css/font-awesome.min.css';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams
-} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Navbar from '../Navbar/Navbar';
-import { ADD_TO_CART, CHEK_IF_ITEM_EXIST_IN_CART, REMOVE_FROM_CART } from '../../types';
+import { addToCart, check_if_item_exist_in_cart, removeFromCart } from '../../actions';
 
 const Index = ({ products }) => {
     let { id } = useParams();
@@ -51,8 +45,8 @@ const Index = ({ products }) => {
                                         </div>
                                         <div className="row">
                                             <div className="col-xs-10 col-md-10 text-xs-center " id="fan">
-                                                {console.log(this.props.CheckIfItemExistInCart(product_details_by_id.id))}
-                                                {(this.props.CheckIfItemExistInCart(product_details_by_id.id)) ?
+                                                {this.props.CheckIfItemExistInCart(product_details_by_id.id)}
+                                                {!(this.props.itemIsExistInCart) ?
                                                     <button className="btn btn-danger form-control d-block" onClick={this.props.addToCart(product_details_by_id.id, qty)}><span className="fa fa-cart-plus">&nbsp;</span>Add to cart</button>
                                                     :
                                                     <button className="btn btn-danger form-control d-block" onClick={this.props.removeFromCart(product_details_by_id.id)}><span className="fa fa-cart-plus">&nbsp;</span>Remove from cart</button>
@@ -78,16 +72,19 @@ const Index = ({ products }) => {
 function mapStateToProps(state) {
     console.log(state)
     return {
-        products: state.products
+        products: state.products,
+        cart: state.cart,
+        itemIsExistInCart: state.itemIsExistInCart,
+        total_price: state.total_price
     }
 }
 
 
 const mapDispatchToProps = dispatch => {
     return {
-        AddToCart: (product_id, qty) => dispatch({ type: ADD_TO_CART }),
-        RemoveFromCart: (product_id) => dispatch({ type: REMOVE_FROM_CART }),
-        CheckIfItemExistInCart: (product_id) => dispatch({ type: CHEK_IF_ITEM_EXIST_IN_CART }),
+        AddToCart: (product_id, qty) => dispatch(addToCart(product_id, qty)),
+        RemoveFromCart: (product_id) => dispatch(removeFromCart(product_id)),
+        CheckIfItemExistInCart: (product_id) => dispatch(check_if_item_exist_in_cart(product_id)),
     }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Index);

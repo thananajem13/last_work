@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { GET_TOTAL_PRICE } from '../../types';
+import { get_total_price } from '../../actions'; 
 const Navbar = ({ get_total_price }) => {
  
   return (
@@ -27,8 +27,7 @@ const Navbar = ({ get_total_price }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    get_total_price: () => dispatch({ type: GET_TOTAL_PRICE }),
-    // RemoveFromCart: () => dispatch({type: REMOVE_FROM_CART })
+    get_total_price: () => dispatch(get_total_price()), 
   }
 };
 export default connect(null, mapDispatchToProps)(Navbar);
