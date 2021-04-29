@@ -85,7 +85,7 @@ const mapStateToProps = (state, ownProps) => ({
     total_price: state.total_price
 });
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return {
         AddToCart: (product_id, qty) => dispatch(addToCart(product_id, qty)),
         RemoveFromCart: (product_id) => dispatch(removeFromCart(product_id)),
