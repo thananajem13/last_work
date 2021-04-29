@@ -51,7 +51,8 @@ const Index = ({ products }) => {
                                         </div>
                                         <div className="row">
                                             <div className="col-xs-10 col-md-10 text-xs-center " id="fan">
-                                                {(this.props.CheckIfItemExistInCart(product_details_by_id.id).itemIsExistInCart) ?
+                                                {console.log(this.props.CheckIfItemExistInCart(product_details_by_id.id))}
+                                                {(this.props.CheckIfItemExistInCart(product_details_by_id.id)) ?
                                                     <button className="btn btn-danger form-control d-block" onClick={this.props.addToCart(product_details_by_id.id, qty)}><span className="fa fa-cart-plus">&nbsp;</span>Add to cart</button>
                                                     :
                                                     <button className="btn btn-danger form-control d-block" onClick={this.props.removeFromCart(product_details_by_id.id)}><span className="fa fa-cart-plus">&nbsp;</span>Remove from cart</button>
