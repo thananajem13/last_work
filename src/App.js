@@ -11,7 +11,7 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route path="/product/:id">
-            <PD />
+          const pdContainer = (props) => {<PD ...props />}
           </Route>
           <Route path="/cart">
             <CI />
