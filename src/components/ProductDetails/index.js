@@ -1,4 +1,4 @@
-import React, { useState }  from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import './index.css'
 import './../../../node_modules/font-awesome/css/font-awesome.min.css';
@@ -16,7 +16,7 @@ const Index = ({ products }) => {
     let { id } = useParams();
     const product_details_by_id = products.find(product =>
         product.id === id);
-        const [qty, setQty] = useState(0);
+    const [qty, setQty] = useState(0);
     return (
         <div>
             <Navbar />
@@ -45,14 +45,14 @@ const Index = ({ products }) => {
                                             <div className="col-xs-10 col-md-10 text-xs-center form-outline" id="hits">
                                                 <span className="fa fa-sort-amount-up">&nbsp;</span>
                                                 <label className="form-label" htmlFor="qty">Quantity</label>
-                                                <input type="number" id="qty" min="1" className="form-control" onChange={(e)=>{setQty(e.target.value)}}/>
+                                                <input type="number" id="qty" min="1" className="form-control" onChange={(e) => { setQty(e.target.value) }} />
 
                                             </div>
                                         </div>
                                         <div className="row">
                                             <div className="col-xs-10 col-md-10 text-xs-center " id="fan">
                                                 {(this.props.CheckIfItemExistInCart(product_details_by_id.id).itemIsExistInCart) ?
-                                                    <button className="btn btn-danger form-control d-block" onClick={this.props.addToCart(product_details_by_id.id,qty)}><span className="fa fa-cart-plus">&nbsp;</span>Add to cart</button>
+                                                    <button className="btn btn-danger form-control d-block" onClick={this.props.addToCart(product_details_by_id.id, qty)}><span className="fa fa-cart-plus">&nbsp;</span>Add to cart</button>
                                                     :
                                                     <button className="btn btn-danger form-control d-block" onClick={this.props.removeFromCart(product_details_by_id.id)}><span className="fa fa-cart-plus">&nbsp;</span>Remove from cart</button>
                                                 }
@@ -84,7 +84,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => {
     return {
-        AddToCart: (product_id,qty) => dispatch({ type: ADD_TO_CART }),
+        AddToCart: (product_id, qty) => dispatch({ type: ADD_TO_CART }),
         RemoveFromCart: (product_id) => dispatch({ type: REMOVE_FROM_CART }),
         CheckIfItemExistInCart: (product_id) => dispatch({ type: CHEK_IF_ITEM_EXIST_IN_CART }),
     }
