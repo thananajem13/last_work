@@ -40,7 +40,8 @@ const Index = ({carts}) => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {carts.map((cartItem) => (
+                                                {console.log("carts: ",carts),
+                                                carts.map((cartItem) => (
                                                     <tr>
                                                         <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" className="img-cart" /></td>
                                                         <td><strong>{cartItem.product.image}</strong><p>Size : 26</p></td>
