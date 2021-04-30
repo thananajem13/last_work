@@ -41,10 +41,10 @@ const Index = ({carts}) => {
                                             </thead>
                                             <tbody>
                                                 {
-                                                 console.log("cartsForTest: ",JSON.parse(localStorage.getItem("cart"))),
+                                               //  console.log("cartsForTest: ",this),
                                                 (JSON.parse(localStorage.getItem("cart")) !== null)?
                                                 JSON.parse(localStorage.getItem("cart")).map((cartItem) => (
-                                                    console.log('cartitemfortest',this.props),
+                                               //     console.log('cartitemfortest',this.props),
                                                     <tr>
                                                         <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" className="img-cart" /></td>
                                                         <td><strong>{cartItem.product.image}</strong><p>Size : 26</p></td>
@@ -52,7 +52,7 @@ const Index = ({carts}) => {
                                                             <form className="form-inline">
                                                                 <input className="form-control" type="number" defaultValue="1" value={cartItem.qty} />
                                                                 <button rel="tooltip" className="btn btn-default"><i className="fa fa-pencil"></i></button>
-                                                                <button className="btn btn-primary" onClick={this.props.RemoveFromCart(cartItem.product.id)}><i className="fa fa-trash-o"></i></button>
+                                                                <button className="btn btn-primary" ><i className="fa fa-trash-o"></i></button>
                                                             </form>
                                                         </td>
                                                         <td>{`${cartItem.product.price}$`}</td>
