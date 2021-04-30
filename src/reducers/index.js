@@ -8,15 +8,15 @@ const initState = {
 }
 
 const getProductListReducer = function (state = initState, action) {
-    console.log(state.products[0].id);
+    //console.log(state.products[0].id);
     switch (action.type) {
 
         case GET_PRODUCTS_LIST:
-            // console.log("from reducer: ", state)
+            // //console.log("from reducer: ", state)
             return state;
 
         case ADD_TO_CART:
-            // console.log("from reducer: ", state)
+            
             const productItem = state.products.find(product =>
                 product.id === action.product_id);
             const cartItems = [...state.cart, {
@@ -24,27 +24,31 @@ const getProductListReducer = function (state = initState, action) {
                 qty: action.qty
             }]
             state.cart = cartItems
+            console.log("add to cart: " , state)
             return state;
 
         case REMOVE_FROM_CART:
-            // console.log("from reducer: ", state)
+            // //console.log("from reducer: ", state)
             const ProductAfterRemove = state.products.filter(product =>
                 product.id !== action.product_id);
             state.cart = ProductAfterRemove
             return state;
 
         case GET_TOTAL_PRICE:
-            // console.log("from reducer: ", state)
+            // //console.log("from reducer: ", state)
             state.cart.map(item => (
                 state.total_price = item.product.price * item.qty
             ));
             return state;
 
         case CHEK_IF_ITEM_EXIST_IN_CART:
-            // console.log("from reducer: ", state)
+            // //console.log("from reducer: ", state)
             const cart_product = state.cart
             const check_if_item_exist_in_cart = false
+            console.log("thana ",action.product_id)
+            console.log("cart ",cart_product)
             cart_product.map((product) => (
+                console.log("action.product_id:  ",action.product_id),
                 console.log("check_if_item_exist_in_cart: ",product.id.indexOf(action.product_id) !== -1)
                 // check_if_item_exist_in_cart = product.id.indexOf(action.product_id) !== -1
             ))

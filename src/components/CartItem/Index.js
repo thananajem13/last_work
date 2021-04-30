@@ -3,8 +3,8 @@ import Navbar from '../Navbar/Navbar'
 import './Index.css'
 import { connect } from "react-redux"; 
 import { get_total_price, removeFromCart } from '../../actions';
-const Index = ({products}) => {
-    console.log(products)
+const Index = ({carts}) => {
+    //console.log(carts)
     return (
         <div>
             <Navbar />
@@ -40,7 +40,7 @@ const Index = ({products}) => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {products.map((cartItem) => (
+                                                {carts.map((cartItem) => (
                                                     <tr>
                                                         <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" className="img-cart" /></td>
                                                         <td><strong>{cartItem.product.image}</strong><p>Size : 26</p></td>
@@ -88,7 +88,7 @@ const Index = ({products}) => {
 }
 function mapStateToProps(state) {
     return {
-        products: state.cart,
+        carts: state.cart,
     };
 }
 const mapDispatchToProps = dispatch => {
