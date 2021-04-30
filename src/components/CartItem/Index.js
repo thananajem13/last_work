@@ -40,9 +40,10 @@ const Index = ({carts}) => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {console.log("carts: ",carts),
-                                                (localStorage.getItem("cart") !== null)?
-                                                localStorage.getItem("cart").map((cartItem) => (
+                                                {
+                                                // console.log("carts: ",carts),
+                                                (JSON.parse(localStorage.getItem("cart")) !== null)?
+                                                JSON.parse(localStorage.getItem("cart")).map((cartItem) => (
                                                     <tr>
                                                         <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" className="img-cart" /></td>
                                                         <td><strong>{cartItem.product.image}</strong><p>Size : 26</p></td>
@@ -65,7 +66,7 @@ const Index = ({carts}) => {
                                                 <tr>
                                                     <td colSpan="4" className="text-right">Total Product</td>
                                                     {/* <td>{get_total_price}</td> */}
-                                                    <td>{localStorage.getItem("cart")!==null?localStorage.getItem("total_price"):0}</td>
+                                                    <td>{JSON.parse(localStorage.getItem("cart"))!==null?localStorage.getItem("total_price"):0}</td>
                                                 </tr>
                                                 <tr>
                                                     <td colSpan="4" className="text-right">Total Shipping</td>

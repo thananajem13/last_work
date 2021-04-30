@@ -9,6 +9,7 @@ const initState = {
 
 const getProductListReducer = function (state = initState, action) {
     //console.log(state.products[0].id);
+    localStorage.clear()
     switch (action.type) {
 
         case GET_PRODUCTS_LIST:
@@ -27,7 +28,10 @@ const getProductListReducer = function (state = initState, action) {
                 qty: action.qty
             }]
             localStorage.removeItem("cart")
-            localStorage.setItem("cart",cartItems)
+            console.log("cartItems: ",cartItems)
+            localStorage.setItem("cart",JSON.stringify(cartItems))
+            console.log("JSON.stringify(cartItems):  ",JSON.stringify(cartItems))
+            console.log("test JSON.parse:  ",((localStorage.getItem("cart"))))
             state.cart = cartItems
             console.log("add to cart: " , state)
             return state;
