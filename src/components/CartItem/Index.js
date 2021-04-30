@@ -41,9 +41,10 @@ const Index = ({carts}) => {
                                             </thead>
                                             <tbody>
                                                 {
-                                                // console.log("carts: ",carts),
+                                                 console.log("cartsForTest: ",JSON.parse(localStorage.getItem("cart"))),
                                                 (JSON.parse(localStorage.getItem("cart")) !== null)?
                                                 JSON.parse(localStorage.getItem("cart")).map((cartItem) => (
+                                                    console.log('cartitemfortest',this.props),
                                                     <tr>
                                                         <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" className="img-cart" /></td>
                                                         <td><strong>{cartItem.product.image}</strong><p>Size : 26</p></td>
