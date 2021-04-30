@@ -41,7 +41,7 @@ const Index = ({carts}) => {
                                             </thead>
                                             <tbody>
                                                 {console.log("carts: ",carts),
-                                                carts.map((cartItem) => (
+                                                localStorage.getItem("cart").map((cartItem) => (
                                                     <tr>
                                                         <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" className="img-cart" /></td>
                                                         <td><strong>{cartItem.product.image}</strong><p>Size : 26</p></td>

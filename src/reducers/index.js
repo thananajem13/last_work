@@ -16,13 +16,14 @@ const getProductListReducer = function (state = initState, action) {
             return state;
 
         case ADD_TO_CART:
-            
+        
             const productItem = state.products.find(product =>
                 product.id === action.product_id);
             const cartItems = [...state.cart, {
                 product: productItem,
                 qty: action.qty
             }]
+            localStorage.setItem("cart",cartItems)
             state.cart = cartItems
             console.log("add to cart: " , state)
             return state;
@@ -31,6 +32,7 @@ const getProductListReducer = function (state = initState, action) {
             // //console.log("from reducer: ", state)
             const ProductAfterRemove = state.products.filter(product =>
                 product.id !== action.product_id);
+                localStorage.setItem("cart",ProductAfterRemove)
             state.cart = ProductAfterRemove
             return state;
 
@@ -43,7 +45,8 @@ const getProductListReducer = function (state = initState, action) {
 
         case CHEK_IF_ITEM_EXIST_IN_CART:
             // //console.log("from reducer: ", state)
-            const cart_product = state.cart
+            // const cart_product = state.cart
+            const cart_product = localStorage.getItem("cart")
             const check_if_item_exist_in_cart = false
             console.log("thana ",action.product_id)
             console.log("cart ",cart_product)
