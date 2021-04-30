@@ -16,7 +16,8 @@ const Navbar = ({ get_total_price }) => {
           <ul className="navbar-nav mr-2">
             <li className="nav-item"><Link className="nav-link" to="/">Shop</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/cart">My cart</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/cart"><i className="bg-danger">shopping_cart <span className="badge badge-dark">{get_total_price}</span></i></Link></li>
+            {/* <li className="nav-item"><Link className="nav-link" to="/cart"><i className="bg-danger">shopping_cart <span className="badge badge-dark">{get_total_price}</span></i></Link></li> */}
+            <li className="nav-item"><Link className="nav-link" to="/cart"><i className="bg-danger">shopping_cart <span className="badge badge-dark">{localStorage.getItem("cart")!==null?localStorage.getItem("total_price"):0}</span></i></Link></li>
           </ul>
         </div>
 

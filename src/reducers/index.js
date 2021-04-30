@@ -16,13 +16,17 @@ const getProductListReducer = function (state = initState, action) {
             return state;
 
         case ADD_TO_CART:
-        
+        if(localStorage.getItem("cart") !== null){
+            state.cart = localStorage.getItem("cart")
+        }
             const productItem = state.products.find(product =>
                 product.id === action.product_id);
+               
             const cartItems = [...state.cart, {
                 product: productItem,
                 qty: action.qty
             }]
+            localStorage.removeItem("cart")
             localStorage.setItem("cart",cartItems)
             state.cart = cartItems
             console.log("add to cart: " , state)
@@ -38,15 +42,22 @@ const getProductListReducer = function (state = initState, action) {
 
         case GET_TOTAL_PRICE:
             // //console.log("from reducer: ", state)
+            state.cart = localStorage.getItem("cart")
+            console.log("thana thana thana thana thana thana thana thana thana thana :",state.cart)
             state.cart.map(item => (
                 state.total_price = item.product.price * item.qty
             ));
+            localStorage.setItem("total_price",state.total_price)
             return state;
 
         case CHEK_IF_ITEM_EXIST_IN_CART:
             // //console.log("from reducer: ", state)
             // const cart_product = state.cart
-            const cart_product = localStorage.getItem("cart")
+            const cart_product = [];
+            if(localStorage.getItem("cart") !== null){ 
+                console.log((localStorage))
+                cart_product = localStorage.getItem("cart")
+            }
             const check_if_item_exist_in_cart = false
             console.log("thana ",action.product_id)
             console.log("cart ",cart_product)

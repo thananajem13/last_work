@@ -41,6 +41,7 @@ const Index = ({carts}) => {
                                             </thead>
                                             <tbody>
                                                 {console.log("carts: ",carts),
+                                                (localStorage.getItem("cart") !== null)?
                                                 localStorage.getItem("cart").map((cartItem) => (
                                                     <tr>
                                                         <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" className="img-cart" /></td>
@@ -57,13 +58,14 @@ const Index = ({carts}) => {
                                                     </tr>
 
 
-                                                ))}
+                                                )):"no items in cart"}
                                                       <tr>
                                                     <td colSpan="6">&nbsp;</td>
                                                 </tr>
                                                 <tr>
                                                     <td colSpan="4" className="text-right">Total Product</td>
-                                                    <td>{get_total_price}</td>
+                                                    {/* <td>{get_total_price}</td> */}
+                                                    <td>{localStorage.getItem("cart")!==null?localStorage.getItem("total_price"):0}</td>
                                                 </tr>
                                                 <tr>
                                                     <td colSpan="4" className="text-right">Total Shipping</td>
