@@ -10,7 +10,9 @@ class Home extends Component {
         <Navbar />
         <div className="container">
           <div className="row">
-            {this.props.products.map((product) => (
+            {
+            console.log("props: ",this.props),            
+            this.props.products.map((product) => (
               <div className="col-xs-12 col-md-4 col-lg-3" key={product.id}>
                 <div className="card" style={{ width: 18 + "rem" }}>
                   <img
@@ -39,7 +41,7 @@ class Home extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
+  // console.log(state);
   return {
     products: state.products,
   };
