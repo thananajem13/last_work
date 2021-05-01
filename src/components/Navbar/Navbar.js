@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { get_total_price } from '../../actions'; 
 const Navbar = ({ get_total_price }) => {
- 
-  return (
+ console.log('TestNavBarFortotal_price',localStorage.getItem("total_price"));
+ console.log('TestNavBarForcart',localStorage.getItem("cart"));
+ useEffect(()=>{console.log('TestNavBar_useEffect')});
+ return (
 
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">

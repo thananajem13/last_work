@@ -9,7 +9,7 @@ const initState = {
 
 const getProductListReducer = function (state = initState, action) {
     //console.log(state.products[0].id);
-    // localStorage.clear()
+    localStorage.clear()
     switch (action.type) {
 
         case GET_PRODUCTS_LIST:
@@ -23,7 +23,7 @@ const getProductListReducer = function (state = initState, action) {
             const productItem = state.products.find(product =>
                 product.id === action.product_id);
                
-            const cartItems = [...state.cart, {
+            const cartItems = [...state.cart,{
                 product: productItem,
                 qty: action.qty
             }]
