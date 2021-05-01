@@ -13,7 +13,7 @@ const getProductListReducer = function (state = initState, action) {
     switch (action.type) {
 
         case GET_PRODUCTS_LIST:
-            // //console.log("from reducer: ", state)
+            //console.log("from reducer: ", state)
             return state;
 
         case ADD_TO_CART:
@@ -29,7 +29,7 @@ const getProductListReducer = function (state = initState, action) {
             }]
             localStorage.removeItem("cart")
             console.log("cartItems: ",cartItems)
-            localStorage.setItem("cart",JSON.stringify(cartItems))
+            
             console.log("JSON.stringify(cartItems):  ",JSON.stringify(cartItems))
             console.log("test JSON.parse:  ",((localStorage.getItem("cart"))))
             state.cart = cartItems
@@ -39,6 +39,7 @@ const getProductListReducer = function (state = initState, action) {
                 state.total_price = item.product.price * item.qty
             ));
             localStorage.setItem("total_price",state.total_price);
+            localStorage.setItem("cart",JSON.stringify(cartItems))
             /* */ 
             return state;
 
