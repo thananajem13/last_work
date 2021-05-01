@@ -9,7 +9,7 @@ const initState = {
 
 const getProductListReducer = function (state = initState, action) {
     //console.log(state.products[0].id);
-    localStorage.clear()
+    // localStorage.clear()
     switch (action.type) {
 
         case GET_PRODUCTS_LIST:
@@ -34,6 +34,12 @@ const getProductListReducer = function (state = initState, action) {
             console.log("test JSON.parse:  ",((localStorage.getItem("cart"))))
             state.cart = cartItems
             console.log("add to cart: " , state)
+            /* */
+            state.cart.map(item => (
+                state.total_price = item.product.price * item.qty
+            ));
+            localStorage.setItem("total_price",state.total_price);
+            /* */ 
             return state;
 
         case REMOVE_FROM_CART:
@@ -42,6 +48,12 @@ const getProductListReducer = function (state = initState, action) {
                 product.id !== action.product_id);
                 localStorage.setItem("cart",ProductAfterRemove)
             state.cart = ProductAfterRemove
+            /* */
+            state.cart.map(item => (
+                state.total_price = item.product.price * item.qty
+            ));
+            localStorage.setItem("total_price",state.total_price)
+            /* */
             return state;
 
         case GET_TOTAL_PRICE:

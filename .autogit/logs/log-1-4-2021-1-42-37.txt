@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Sat May 01 2021 01:42:37 GMT+0300 (Israel Daylight Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-1-4-2021-1-12-14.txt
+
+
+Deleted files:
+
+
+Renamed files:
