@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sat May 01 2021 18:03:47 GMT+0300 (Israel Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* src/reducers/index.js
+
+
+Created files:
+* .autogit/logs/log-1-4-2021-17-33-25.txt
+
+
+Deleted files:
+
+
+Renamed files:
