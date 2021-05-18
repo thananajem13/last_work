@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Navbar from "./Navbar/Navbar";
+import Navbar from "./Navbar/Navbar"; 
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar /> 
+
         <div className="container">
           <div className="row">
             {
