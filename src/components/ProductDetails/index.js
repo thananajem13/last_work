@@ -6,20 +6,29 @@ import { useParams } from "react-router-dom";
 import Navbar from '../Navbar/Navbar';
 import { compose } from 'redux'
 import { withRouter } from "react-router";
-import { addToCart, check_if_item_exist_in_cart, removeFromCart } from '../../actions';
+import { addToCart ,get_total_price , check_if_item_exist_in_cart, removeFromCart } from '../../actions';
 
 class Index extends Component {
     // let { id } = useParams();
     state = {
-        qty: 0
+        qty: 0,
+       
     }
-    // const [qty, setQty] = useState(0);
+   //  const [qty, setQty] = useState(0);//console.log(useState(0));
+  //  const [t_price, setCount] = useState(0);
+
+ 
+
     render() {
-        //console.log(this.props.products);
+       // console.log(this.props)
+       // const { articles } = this.props;
+
         const product_details_by_id = this.props.products.find(product =>
             product.id === this.props.productId);
         return (
+          console.log("**************************************",this.props.productId),
             <div>
+            
                 <Navbar />
                 <div className="container">
                     <div className="row">
@@ -32,7 +41,7 @@ class Index extends Component {
                                     <div className="row">
                                         <div className="col-xs-6 col-md-6">
                                             <ul className="pb-product-details-ul">
-                                                <li><span className="fa fa-product-hunt">&nbsp;{`ProductName: ${product_details_by_id.ProductName} `}</span></li>
+                                                <li><span className="fa fa-product-hunt">&nbsp;{`ProductName: ${product_details_by_id.productName} `}</span></li>
                                                 <li><span className="fa fa-microchip">&nbsp;{`CPU: ${product_details_by_id.cpu} `}</span></li>
                                                 <li><span className="fa fa-laptop">&nbsp;{`Screen: ${product_details_by_id.screen} `}</span></li>
                                                 <li><span className="fa fa-memory">&nbsp;{`RAM: ${product_details_by_id.ram} `}</span></li>
@@ -46,20 +55,33 @@ class Index extends Component {
                                                 <div className="col-xs-10 col-md-10 text-xs-center form-outline" id="hits">
                                                     <span className="fa fa-sort-amount-up">&nbsp;</span>
                                                     <label className="form-label" htmlFor="qty">Quantity</label>
-                                                    <input type="number" id="qty" min="1" className="form-control" onChange={(e) => { this.setState({ qty: e.target.value }) }} />
+                                                    <input type="number" id="qty" min="1" className="form-control" onChange={(e) => { 
+                                                       // e.preventDefault();
+                                                       console.log(this);
+                                                        this.setState({ qty: e.target.value })
+                                                        }} />
 
                                                 </div>
                                             </div>
                                             <div className="row">
                                                 <div className="col-xs-10 col-md-10 text-xs-center " id="fan">
-                                                    {(this.props.CheckIfItemExistInCart(product_details_by_id.id)) ?
-                                                        <button className="btn btn-danger form-control d-block" onClick={()=>{
-                                                            this.props.Add_To_Cart(product_details_by_id.id, this.state.qty);
+                                                    
+                                                        <button className="btn btn-danger form-control d-block" onClick={(e)=>{
+                                                          //  e.preventDefault();
+                                                          this.props.Add_To_Cart(product_details_by_id.id, this.state.qty);
+                                                            console.log("---------------------------------------",this.props)    
                                                            
                                                         }
                                                     }><span className="fa fa-cart-plus">&nbsp;</span>Add to cart</button>
+                                                    {(localStorage.getItem("cart") !== null)?
+                                                    (JSON.parse(localStorage.getItem("cart")).findIndex(_item => _item.product.id === product_details_by_id.id)==-1) ? ""
+                                                        
                                                         :
-                                                        <button className="btn btn-danger form-control d-block" onClick={()=>this.props.Remove_From_Cart(product_details_by_id.id)}><span className="fa fa-cart-plus">&nbsp;</span>Remove from cart</button>
+                                                        <button className="btn btn-danger form-control d-block" onClick={(e)=>{
+                                                          //  e.preventDefault();
+                                                            this.props.Remove_From_Cart(product_details_by_id.id)}
+                                                        }><span className="fa fa-cart-plus">&nbsp;</span>Remove from cart</button>
+                                                        :null  
                                                     },
                                                     
                                                 </div>  
@@ -82,23 +104,30 @@ class Index extends Component {
 
 
 }
-const mapStateToProps = (state, ownProps) => ({
+
+const mapStateToProps = (state, ownProps) => {
+return {
     productId: ownProps.match.params.id,
     products: state.products,
     cart: state.cart, 
     total_price: state.total_price
-});
+}
+};
 
 const mapDispatchToProps = (dispatch) => {
+    console.log("Add_To_Cart___");
     return {
+
         Add_To_Cart: (product_id, qty) => dispatch(addToCart(product_id, qty)),
+        get_total_price: () => dispatch(get_total_price()),
         Remove_From_Cart: (product_id) => dispatch(removeFromCart(product_id)),
         CheckIfItemExistInCart: (product_id) => dispatch(check_if_item_exist_in_cart(product_id)),
     }
 };
+
 export default compose(
     withRouter,
     connect(mapStateToProps, mapDispatchToProps),
 )(Index);
 
-
+//export default connect(mapStateToProps, mapDispatchToProps)(Index);

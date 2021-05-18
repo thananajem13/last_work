@@ -40,23 +40,23 @@ const Index = ({carts}) => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {
+                                                { 
                                                //  console.log("cartsForTest: ",this),
                                                 (JSON.parse(localStorage.getItem("cart")) !== null)?
                                                 JSON.parse(localStorage.getItem("cart")).map((cartItem) => (
-                                               //     console.log('cartitemfortest',this.props),
+                                                    console.log('cartitemfortest',cartItem),
                                                     <tr>
-                                                        <td><img src="https://via.placeholder.com/400x200/FFB6C1/000000" className="img-cart" /></td>
-                                                        <td><strong>{cartItem.product.image}</strong><p>Size : 26</p></td>
+                                                        <td><img src={"/images/"+cartItem.product.image} className="img-cart" /></td>
+                                                        <td><strong>{cartItem.product.description}</strong><p>Size : 26</p></td>
                                                         <td>
                                                             <form className="form-inline">
                                                                 <input className="form-control" type="number" defaultValue="1" value={cartItem.qty} />
                                                                 <button rel="tooltip" className="btn btn-default"><i className="fa fa-pencil"></i></button>
-                                                                <button className="btn btn-primary" ><i className="fa fa-trash-o"></i></button>
+                                                                <button className="btn btn-primary" onClick ={(e)=>{this.props.RemoveFromCart(cartItem.product.id)}}><i className="fa fa-trash-o"></i></button>
                                                             </form>
                                                         </td>
                                                         <td>{`${cartItem.product.price}$`}</td>
-                                                        <td>$54.00</td>
+                                                        <td>{`${cartItem.product.price*cartItem.qty}$`}</td>
                                                     </tr>
 
 
@@ -66,16 +66,16 @@ const Index = ({carts}) => {
                                                 </tr>
                                                 <tr>
                                                     <td colSpan="4" className="text-right">Total Product</td>
-                                                    {/* <td>{get_total_price}</td> */}
-                                                    <td>{JSON.parse(localStorage.getItem("cart"))!==null?localStorage.getItem("total_price"):0}</td>
+                                                     <td>{localStorage.totalProduct}</td> 
+                                                    {/*<td>{JSON.parse(localStorage.getItem("cart"))!==null?localStorage.getItem("total_price"):0}</td>*/}
                                                 </tr>
                                                 <tr>
                                                     <td colSpan="4" className="text-right">Total Shipping</td>
-                                                    <td>$2.00</td>
+                                                    <td>{localStorage.totalShipping}</td>
                                                 </tr>
                                                 <tr>
                                                     <td colSpan="4" className="text-right"><strong>Total</strong></td>
-                                                    <td>$88.00</td>
+                                                    <td>${localStorage.total_price}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
