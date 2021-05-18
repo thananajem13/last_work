@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { get_total_price } from '../../actions'; 
+import searchbar from '../SearchBar/searchbar';
 const Navbar = ({ total_price }) => {
  console.log('TestNavBarFortotal_price',localStorage.getItem("total_price"));
  console.log('TestNavBarForcart',localStorage.getItem("cart"));
@@ -23,7 +24,10 @@ console.log("+++++++++++++++++++++++",total_price),
             <li className="nav-item"><Link className="nav-link" to="/cart"><i className="bg-danger">shopping_cart <span id="t_price" className="badge badge-dark">{localStorage.getItem("cart")!==null?localStorage.getItem("total_price"):0}</span></i></Link></li>
           </ul>
         </div>
-
+      <input type="text" placeholder="please enter the product name" onChange={(e)=>{
+        let txt_has_val = false;
+        (e.target.value!==null)?<searchbar "txt_has_val" = true />:txt_has_val = false
+      }}/>
       </div>
     </nav>
   )

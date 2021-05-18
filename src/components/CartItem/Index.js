@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Navbar from '../Navbar/Navbar'
 import './Index.css'
 import { connect } from "react-redux"; 
 import { get_total_price, removeFromCart } from '../../actions';
-const Index = ({carts}) => {
-    //console.log(carts)
-    return (
+class Index extends Component {
+    render() {
+       return (
         <div>
             <Navbar />
             <div className="container bootstrap snippets bootdey">
@@ -43,7 +43,7 @@ const Index = ({carts}) => {
                                                 { 
                                                //  console.log("cartsForTest: ",this),
                                                 (JSON.parse(localStorage.getItem("cart")) !== null)?
-                                                JSON.parse(localStorage.getItem("cart")).map((cartItem) => (
+                                                (JSON.parse(localStorage.getItem("cart")).map((cartItem) => (
                                                     console.log('cartitemfortest',cartItem),
                                                     <tr>
                                                         <td><img src={"/images/"+cartItem.product.image} className="img-cart" /></td>
@@ -60,7 +60,9 @@ const Index = ({carts}) => {
                                                     </tr>
 
 
-                                                )):"no items in cart"}
+                                                ))):(<tr>
+                                                <td colSpan="6">no items in cart</td>
+                                            </tr>)}
                                                       <tr>
                                                     <td colSpan="6">&nbsp;</td>
                                                 </tr>
@@ -89,9 +91,12 @@ const Index = ({carts}) => {
                 </div>
             </div>
         </div>
-    )
+    ) 
+    }
+    //console.log(carts)
+    
 }
-function mapStateToProps(state) {
+const mapStateToProps=(state)=> {
     return {
         carts: state.cart,
     };
